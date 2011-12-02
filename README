@@ -1,0 +1,25 @@
+This is a quick hack for a transliteration program using the arabxetex mapping
+files. It parses the (simple) arabxetex mappings into python regular expressions.
+
+The program will store config in a pytarjim_config.txt in the current folder
+simply, but the window config is internally stored only if it is minimized by
+clicking the tray icon.
+
+
+TRANSLITERATION
+===============
+Examples: al-l___u.gaT, al-l-----|u.gaT, `ayn (Ayn), 'ax (Hamza), al'An, jiddaan,
+    jiddan, mi.sriy, h_a_dA, al-ll_ah (ligature), al-ll|_ah (no ligature), 42
+    The result if encoding is right and your font understands arabic (and
+    vocalization is on):
+اللـــُغَة، اللــُغَة، عَين، أَخ، اَلآن، جِدَّان، جِدَّن، مِصرِي، هٰذَا، ﷲ، اللّٰه، ٤٢
+
+Emphatic consonants: .h, .s, etc.
+The th sounds: _t, _d and .z
+Vowels: A, U, I, uw, iy, aa, uu, ii work for long vowels (in latex, the double
+    version can be problematic with hamza).
+Consontants: w = U and y = I (without short consonants before)
+Shadda: Double consant without vowel in between gets a shadda however
+    long vowel + consant seems random...
+
+Otherwise: Just try and/or read the arabxetex documentation.
