@@ -55,7 +55,6 @@ class Transliterator:
         self.trans_buffer.connect('changed', self.idle_edited)
         
         self.font_button = builder.get_object('arabfontbutton')
-        self.text_arab.modify_font(pango.FontDescription(self.font_button.get_font_name()))
         
         self.translitpicker = builder.get_object("translitpicker")
         self.translit_list_store = gtk.ListStore(gobject.TYPE_STRING)
@@ -83,6 +82,8 @@ class Transliterator:
             pass
         except:
             print 'Invalid Config file!'
+
+        self.text_arab.modify_font(pango.FontDescription(self.font_button.get_font_name()))
 
         self.icon = gtk.StatusIcon()
         self.icon.set_from_file('icon.svg')
