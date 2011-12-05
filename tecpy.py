@@ -204,7 +204,6 @@ class Mapping(object):
         string = unicode(string)
         for p in self.passes:
             for sub in p:
-                m = re.match(sub[1], string)
                 string = sub[0](string)
                 
         return string
