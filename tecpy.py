@@ -124,7 +124,7 @@ class Mapping(object):
                     string.append(m)
             else:
                 if negate:
-                    string.append(u'(?!(%s))' % u'|'.join([re.escape(_) for _ in m]))
+                    string.append(u'(?!(%s)).' % u'|'.join([re.escape(_) for _ in m]))
                     negate = False
                 else:
                     string.append(u'(%s)' % u'|'.join([re.escape(_) for _ in m]))
@@ -146,9 +146,10 @@ class Mapping(object):
                 old = old[0]
                 if len(new) == len(old):
                     for n, o in zip(new, old):
-                        n, o = n, re.compile(re.escape(o))
+                        o = re.escape(o)
+                        n, _o = n, re.compile(o)
                         def add(o, n):
-                            self.passes[-1].append([lambda x: o.sub(n, x), o, n])
+                            self.passes[-1].append([lambda x: _o.sub(n, x), o, n])
                         add(o, n)
                     return
                 elif len(new) != 1:
@@ -203,7 +204,10 @@ class Mapping(object):
         string = unicode(string)
         for p in self.passes:
             for sub in p:
-                #m = re.match(sub[1], string)
+                m = re.match(sub[1], string)
+                print sub[1], sub[2]
+                print m
+                print string
                 string = sub[0](string)
-
+                print string
         return string
