@@ -205,9 +205,6 @@ class Mapping(object):
         for p in self.passes:
             for sub in p:
                 m = re.match(sub[1], string)
-                print sub[1], sub[2]
-                print m
-                print string
                 string = sub[0](string)
-                print string
+                
         return string
