@@ -149,8 +149,8 @@ class Mapping(object):
                         o = re.escape(o)
                         n, _o = n, re.compile(o)
                         def add(o, n):
-                            self.passes[-1].append([lambda x: o.sub(n, x), o, n])
-                        add(_o, n)
+                            self.passes[-1].append([lambda x: _o.sub(n, x), o, n])
+                        add(o, n)
                     return
                 elif len(new) != 1:
                     raise NotImplementedError('For list of characters, length must equal')
