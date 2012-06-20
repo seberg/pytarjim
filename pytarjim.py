@@ -15,9 +15,11 @@ import pango
 import tecpy
 
 translits = [('Vocalize (No Alif)', 'map/mappings/arabtex-fdf2noalif-voc.map'.replace('/', os.path.sep)),
+    ('Sparsevocalize (No Alif)', 'map/mappings/arabtex-fdf2noalif-sparsevoc.map'.replace('/', os.path.sep)),
     ('Fullvocalize (No Alif)', 'map/mappings/arabtex-fdf2noalif-fullvoc.map'.replace('/', os.path.sep)),
     ('No vocalization (No Alif)', 'map/mappings/arabtex-fdf2noalif-novoc.map'.replace('/', os.path.sep)),
     ('Vocalize (Alif)', 'map/mappings/arabtex-fdf2alif-voc.map'.replace('/', os.path.sep)),
+    ('Sparsevocalize (Alif)', 'map/mappings/arabtex-fdf2alif-sparsevoc.map'.replace('/', os.path.sep)),
     ('Fullvocalize (Alif)', 'map/mappings/arabtex-fdf2alif-fullvoc.map'.replace('/', os.path.sep)),
     ('No vocalization (Alif)', 'map/mappings/arabtex-fdf2alif-novoc.map'.replace('/', os.path.sep)),
     ('DMG Transliteration', 'map/mappings/arabtex-trans-dmg.map'.replace('/', os.path.sep)),

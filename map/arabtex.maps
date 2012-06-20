@@ -31,6 +31,7 @@
 @An LHSName  "ArabTeX-novowels"
 @Av LHSName  "ArabTeX-vocalized"
 @Af LHSName  "ArabTeX-fullvocalized"
+@As LHSName  "ArabTeX-sparsevocalized"
 @Bn LHSName  "ArabTeX-maghribi-novowels"
 @Bv LHSName  "ArabTeX-maghribi-vocalized"
 @Bf LHSName  "ArabTeX-maghribi-fullvocalized"
@@ -279,8 +280,8 @@ CO U > U+06C7 ;
 
 ;; initial characters ...
 a l Z / BEG _ > U+0627 l Z
-#Av (a|U+0627|l i Z) l Z (P|UL)?=q1 (z|s|t|d)=q2 / BEG _ > U+0627 l Z @q1 @q2 @q1 @q2 ;; added by Sebastian Berg
-#Av (a|U+0627|l i Z) l Z (r|n)=qq / BEG _ > U+0627 l Z @qq @qq ;; added by Sebastian Berg
+#As (a|U+0627|l i Z) l Z (P|UL)?=q1 (z|s|t|d)=q2 / BEG _ > U+0627 l Z @q1 @q2 @q1 @q2 ;; added by Sebastian Berg
+#As (a|U+0627|l i Z) l Z (r|n)=qq / BEG _ > U+0627 l Z @qq @qq ;; added by Sebastian Berg
 #A l i Z (a|U+0627) l Z / BEG _ > l i Z l Z ;; added by Sebastian Berg
 #An H l Z / BEG _ > U+0627 l Z
 @Av H l Z / BEG _ > U+0627 l Z
@@ -470,7 +471,7 @@ CO w > U+06CA
 #n Q u N	  > U+064C 
 #n u N       > 
 #n Q u	  > U+064F 
-#v U A / _ # > U+064F U+0648 U+0627 
+#v U A / _ # > U+064F U+0648 U+0627
 #v Q U [Uw]  > U+0648 U+0651  ;;SHADDA
 #v Q U       > U+0648 
 #v U [Uw]    > U+064F U+0648 U+0651  ;;SHADDA
@@ -778,6 +779,11 @@ BAR       >   ;|
 #f U+0627 / # _ U+0644 > U+0627 U+064E ; otherwise initial alif takes fatha
 #f [CONS]=k1 / _ ([CONS]|#) > @k1 U+0652  ; consonant + (consonant or final)
 #f ;; [CONS]=k1 / _ # > @k1 U+0652 ; final consonant
-#f Q > ;
+
+#s U+064E U+0627 > U+0627 ; remove fatha before alif added by Sebastian Berg
+#s U+064F U+0648 / _ ([CONS]|Z|#) > U+0648 ; remove damma before lone wow added by Sebastian Berg
+#s U+0650 U+064A / _ ([CONS]|Z|#) > U+064A ; remove kassra before lone ya added by Sebastian Berg
+
+#fs Q > ;
 #v Z > ;
 

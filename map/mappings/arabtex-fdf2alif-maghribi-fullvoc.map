@@ -165,8 +165,6 @@ O  > U
 
 ;; initial characters ...
 a l Z / BEG _ > U+0627 l Z
-(a|U+0627|l i Z) l Z (P|UL)?=q1 (z|s|t|d)=q2 / BEG _ > U+0627 l Z @q1 @q2 @q1 @q2 ;; added by Sebastian Berg
-(a|U+0627|l i Z) l Z (r|n)=qq / BEG _ > U+0627 l Z @qq @qq ;; added by Sebastian Berg
 l i Z (a|U+0627) l Z / BEG _ > l i Z l Z ;; added by Sebastian Berg
 H l Z / BEG _ > U+0671 l Z ; THIS IS NOT AN ARABTEX CONVENTION! it's a work-around coz pattern-matching across word boundaries does not work in teckit , so min al- must be written mina 'l- in fullvocalize mode
 H / BEG _ l l > U+0671 ; e.g. alla_dI -> 'lla_dI 
@@ -279,7 +277,7 @@ C w C w > U+06C9 U+0651 ;;SHADDA
 C w > U+06C9
 CO w CO w > U+06CA U+0651 ;,SHADDA
 CO w > U+06CA
-U A / _ # > U+064F U+0648 U+0627 
+U A / _ # > U+064F U+0648 U+0627
 Q U [Uw]  > U+0648 U+0651  ;;SHADDA
 Q U       > U+0648 
 U [Uw]    > U+064F U+0648 U+0651  ;;SHADDA
@@ -478,6 +476,7 @@ U+0627 [VWL]?  / [VWL] Z _ > U+0671 ; e.g. fa-isti_hraj -> wasla on initial alif
 U+0627 / # _ U+0644 > U+0627 U+064E ; otherwise initial alif takes fatha
 [CONS]=k1 / _ ([CONS]|#) > @k1 U+0652  ; consonant + (consonant or final)
 ;; [CONS]=k1 / _ # > @k1 U+0652 ; final consonant
-Q > ;
+
+
 Z > ;
 

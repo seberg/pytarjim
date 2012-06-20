@@ -2,3 +2,9 @@ These files are unmodified files taken from arabxetex. As such they are licensed
 under the LPPL and are distributed independendly from the rest of the program.
 
 Please check arabxetex for any details.
+
+Added sparsevoc into makemaps.pl as well as s tag in arabtex.maps.
+Also a change to remove the alif in li-al- for arabic.
+
+Sparse vocalization will work as normal vocalization mode, however remove the
+fatha, damma and kassra before the long vowel.

@@ -309,7 +309,7 @@ C w C w > U+06C9 U+0651 ;;SHADDA
 C w > U+06C9
 CO w CO w > U+06CA U+0651 ;,SHADDA
 CO w > U+06CA
-U A / _ # > U+064F U+0648 U+0627 
+U A / _ # > U+064F U+0648 U+0627
 Q U [Uw]  > U+0648 U+0651  ;;SHADDA
 Q U       > U+0648 
 U [Uw]    > U+064F U+0648 U+0651  ;;SHADDA
@@ -507,6 +507,7 @@ U+064E (U+064A|U+0648)=hc / _ (^[VWLX]|#) > U+064E @hc U+0652 ; ay and aw diphto
 U+0627 / # _ U+0644 > U+0627 U+064E ; otherwise initial alif takes fatha
 [CONS]=k1 / _ ([CONS]|#) > @k1 U+0652  ; consonant + (consonant or final)
 ;; [CONS]=k1 / _ # > @k1 U+0652 ; final consonant
-Q > ;
+
+
 Z > ;
 

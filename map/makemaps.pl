@@ -50,6 +50,26 @@ while (<MAPS>) {
 close OUTPUT;
 close MAPS;
 
+
+open MAPS, "<$master" ;
+open OUTPUT, ">$output-fdf2alif-sparsevoc.map";
+while (<MAPS>) {
+	s/^#1 // ;
+	s/^#0.+\n//m ;
+	s/^\@As // ;
+	s/^\@.+\n//m ;
+	s/^#[A-Z]*A[A-Z]*[vs] // ;
+	s/^#[A-Z]*A[A-Z]* // ;
+	s/^#-[BPUTSKOM]+[vs] // ;
+	s/^#-[BPUTSKOM]+ // ;
+	s/^#[vs] // ;
+	s/^#.+\n//m ;
+	print OUTPUT
+} ;
+close OUTPUT;
+close MAPS;
+
+
 open MAPS, "<$master" ;
 open OUTPUT, ">$output-fdf2alif-fullvoc.map";
 while (<MAPS>) {
@@ -573,6 +593,24 @@ while (<MAPS>) {
 	s/^#-[BPUTSKOM]+v // ;
 	s/^#-[BPUTSKOM]+ // ;
 	s/^#v // ;
+	s/^#.+\n//m ;
+	print OUTPUT
+} ;
+close OUTPUT;
+close MAPS;
+
+open MAPS, "<$master" ;
+open OUTPUT, ">$output-fdf2noalif-sparsevoc.map";
+while (<MAPS>) {
+	s/^#0 // ;
+	s/^#1.+\n//m ;
+	s/^\@As // ;
+	s/^\@.+\n//m ;
+	s/^#[A-Z]*A[A-Z]*[vs] // ;
+	s/^#[A-Z]*A[A-Z]* // ;
+	s/^#-[BPUTSKOM]+[vs] // ;
+	s/^#-[BPUTSKOM]+ // ;
+	s/^#[vs] // ;
 	s/^#.+\n//m ;
 	print OUTPUT
 } ;
