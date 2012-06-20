@@ -8,3 +8,8 @@ Also a change to remove the alif in li-al- for arabic.
 
 Sparse vocalization will work as normal vocalization mode, however remove the
 fatha, damma and kassra before the long vowel.
+
+IMPORTANT: Sparse vocalization as is, relies on execution order and multiple
+execution within same pass, I do NOT think this works in xetex/teckit itself.
+On the other hand maybe not inserting the extra " (Z) but relying on teckit not
+to process the result ever maybe works...
