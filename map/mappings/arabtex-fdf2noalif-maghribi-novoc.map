@@ -165,6 +165,7 @@ O  > U
 
 ;; initial characters ...
 a l Z / BEG _ > U+0627 l Z
+l i Z (a|U+0627) l Z / BEG _ > l i Z l Z ;; added by Sebastian Berg
 H l Z / BEG _ > U+0627 l Z
 H / BEG _ l l > U+0627 ; 
 [VWL]=v1 / BEG _ > A @v1

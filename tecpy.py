@@ -128,6 +128,16 @@ class Mapping(object):
                     negate = False
                 else:
                     string.append(u'(%s)' % u'|'.join([re.escape(_) for _ in m]))
+            
+            if m == ')' and len(string) != 1: # Closing bracket, so search the previous bracket and join this part.
+                for prev_i, prev in enumerate(string[::-1]):
+                    if prev == '(':
+                        string[-prev_i-1] = u''.join(string[-prev_i-1:])
+                        del string[-prev_i:]
+                        break
+                else:
+                    # Don't care about unmachted brackets here, they seem to be handled somewhere else ;)
+                    pass
         
         string = u''.join(string)
         return string

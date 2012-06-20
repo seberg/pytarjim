@@ -165,6 +165,9 @@ O  > U
 
 ;; initial characters ...
 a l Z / BEG _ > U+0627 l Z
+(a|U+0627|l i Z) l Z (P|UL)?=q1 (z|s|t|d)=q2 / BEG _ > U+0627 l Z @q1 @q2 @q1 @q2 ;; added by Sebastian Berg
+(a|U+0627|l i Z) l Z (r|n)=qq / BEG _ > U+0627 l Z @qq @qq ;; added by Sebastian Berg
+l i Z (a|U+0627) l Z / BEG _ > l i Z l Z ;; added by Sebastian Berg
 H l Z / BEG _ > U+0627 l Z
 H / BEG _ l l > U+0671 ; e.g. alla_dI -> 'lla_dI 
 [VWL]=v1 / BEG _ > U+0627 @v1

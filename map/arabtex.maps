@@ -279,6 +279,9 @@ CO U > U+06C7 ;
 
 ;; initial characters ...
 a l Z / BEG _ > U+0627 l Z
+#Av (a|U+0627|l i Z) l Z (P|UL)?=q1 (z|s|t|d)=q2 / BEG _ > U+0627 l Z @q1 @q2 @q1 @q2 ;; added by Sebastian Berg
+#Av (a|U+0627|l i Z) l Z (r|n)=qq / BEG _ > U+0627 l Z @qq @qq ;; added by Sebastian Berg
+#A l i Z (a|U+0627) l Z / BEG _ > l i Z l Z ;; added by Sebastian Berg
 #An H l Z / BEG _ > U+0627 l Z
 @Av H l Z / BEG _ > U+0627 l Z
 @Bv H l Z / BEG _ > U+0627 l Z

@@ -4,7 +4,10 @@
 __author__ = 'Sebastian Berg'
 __license__ = 'LGPL v3'
 
-import sys; sys.argv[0] = 'PyTarjim'
+import sys
+if __name__ == "__main__":
+    sys.argv[0] = 'PyTarjim'
+
 import os
 import gtk, gobject
 import pango
@@ -169,5 +172,6 @@ class Transliterator:
         gtk.main()
 
 if __name__ == "__main__":
+
     transliterator = Transliterator()
     transliterator.main()
