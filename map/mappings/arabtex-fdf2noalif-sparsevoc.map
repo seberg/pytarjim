@@ -473,10 +473,10 @@ Class [VWLX] = (U+0627 U+0648..U+065E U+0670) ; long vowels, vowel signs, shadda
 Class [VWL]  = (U+0627 U+0648..U+0650 U+0670);
 
 U+064E U+0627 > U+0627 ; remove fatha before alif added by Sebastian Berg
-U+064F U+0648 / _ ([CONS]|Z|#) > Z U+0648 ; remove damma before lone wow added by Sebastian Berg
-U+0650 U+064A / _ ([CONS]|Z|#) > Z U+064A ; remove kassra before lone ya added by Sebastian Berg
-U+0648 / [CONS] _ ([CONS]|Z|#) > U+0652 U+0648 ; add sukun before unvocalized wow added by Sebastian Berg
-U+064A / [CONS] _ ([CONS]|Z|#) > U+0652 U+064A ; add sukun before unvocalized ya added by Sebastian Berg
+U+064F U+0648 / _ ([CONS]|Z|#|END) > Z U+0648 ; remove damma before lone wow added by Sebastian Berg
+U+0650 U+064A / _ ([CONS]|Z|#|END) > Z U+064A ; remove kassra before lone ya added by Sebastian Berg
+U+0648 / [CONS] _ ([CONS]|Z|#|END) > U+0652 U+0648 ; add sukun before unvocalized wow added by Sebastian Berg
+U+064A / [CONS] _ ([CONS]|Z|#|END) > U+0652 U+064A ; add sukun before unvocalized ya added by Sebastian Berg
 
 Z > ;
 
