@@ -14,7 +14,8 @@ import pango
 
 import tecpy
 
-translits = [('Vocalize (No Alif)', 'map/mappings/arabtex-fdf2noalif-voc.map'.replace('/', os.path.sep)),
+translits = [
+    ('Vocalize (No Alif)', 'map/mappings/arabtex-fdf2noalif-voc.map'.replace('/', os.path.sep)),
     ('Sparsevocalize (No Alif)', 'map/mappings/arabtex-fdf2noalif-sparsevoc.map'.replace('/', os.path.sep)),
     ('Fullvocalize (No Alif)', 'map/mappings/arabtex-fdf2noalif-fullvoc.map'.replace('/', os.path.sep)),
     ('No vocalization (No Alif)', 'map/mappings/arabtex-fdf2noalif-novoc.map'.replace('/', os.path.sep)),
@@ -23,7 +24,9 @@ translits = [('Vocalize (No Alif)', 'map/mappings/arabtex-fdf2noalif-voc.map'.re
     ('Fullvocalize (Alif)', 'map/mappings/arabtex-fdf2alif-fullvoc.map'.replace('/', os.path.sep)),
     ('No vocalization (Alif)', 'map/mappings/arabtex-fdf2alif-novoc.map'.replace('/', os.path.sep)),
     ('DMG Transliteration', 'map/mappings/arabtex-trans-dmg.map'.replace('/', os.path.sep)),
-    ('Transliteration', 'map/mappings/arabtex-trans-loc.map'.replace('/', os.path.sep))]
+    ('Transliteration', 'map/mappings/arabtex-trans-loc.map'.replace('/', os.path.sep)),
+    ('Kannada', 'custommap/kannada.map'.replace('/', os.path.sep)),
+    ]
 
 translit_dict = dict(translits)
 config_file = 'pyjarjim_config.txt'

@@ -6,8 +6,12 @@ simply, but the window config is internally stored only if it is minimized by
 clicking the tray icon.
 
 
+Arabic
+======
+
 TRANSLITERATION
-===============
+---------------
+
 Examples: al-l___u.gaT, al-l-----|u.gaT, `ayn (Ayn), 'ax (Hamza), al'An, jiddaan,
     jiddan, mi.sriy, h_a_dA, al-ll_ah (ligature), al-ll|_ah (no ligature), 42
     The result if encoding is right and your font understands arabic (and
@@ -23,3 +27,20 @@ Shadda: Double consant without vowel in between gets a shadda however
     long vowel + consant seems random...
 
 Otherwise: Just try and/or read the arabxetex documentation.
+
+
+Kannada
+=======
+
+Added preliminary Kannada support with a custom mapping. As of now it does
+not work perfectly yet, and may have a few odd transliteration methods
+for some letters.
+
+Generally, consonants such as kh, dh, th, bh, and `^sh` work.
+The sh sound (as in shin) is transliterated as in the arabic version with ^s.
+A couple of consonants are currently prepended by a period `.t`, `.th`, `.d`,
+`.dh`, and `.h` (ತ, ತ್ಹ, ದ, ದ್ಹ, ಹ್), which is not equivalent to arabic emphatic
+sounds. An `'` can be used to forcably remove the short vowel a. It  may
+be necessary in composits such as `d'ha` to avoid the `dh` consonant?
+Rarer consonants are `_n` and `_N` which should get better ways of writing
+there is a chance that some are still missing.

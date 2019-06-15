@@ -1,0 +1,227 @@
+;; This custom map is based on the arabxetex maps, although it uses
+;; little or no prior art from them.
+;; It is licensed as CC-0
+;; Copyrighted 2019, Sebastian Berg and Kaumudi Prabhakara
+
+LHSName  "Kannada"
+RHSName  "UNICODE"
+
+Define a U+0061  ;a
+Define b U+0062  ;b
+Define c U+0063  ;c
+Define d U+0064  ;d
+Define e U+0065  ;e
+Define f U+0066  ;f
+Define g U+0067  ;g
+Define h U+0068  ;h
+Define i U+0069  ;i
+Define j U+006A  ;j
+Define k U+006B  ;k
+Define l U+006C  ;l
+Define m U+006D  ;m
+Define n U+006E  ;n
+Define o U+006F  ;o
+Define p U+0070  ;p
+Define q U+0071  ;q
+Define r U+0072  ;r
+Define s U+0073  ;s
+Define t U+0074  ;t
+Define u U+0075  ;u
+Define v U+0076  ;v
+Define w U+0077  ;w
+Define x U+0078  ;x
+Define y U+0079  ;y
+Define z U+007A  ;z
+Define A U+0041  ;A
+Define B U+0042  ;B
+Define E U+0045  ;E
+Define G U+0047  ;G
+Define I U+0049  ;I
+Define N U+004E  ;N
+Define O U+004F  ;O
+Define T U+0054  ;T
+Define U U+0055  ;U
+Define W U+0057  ;W
+Define Y U+0059  ;Y
+Define C U+005E  ;^  << CARET
+Define UL U+005F ;_  << UNDERLINE
+Define P U+002E  ;.  << DOT
+Define V U+002C  ;,  << COMMA (_V_irgule)
+Define CO U+003A ;:  << COLON
+Define SC U+003B ;; << SEMICOLON
+Define Ain U+0060 ;`
+Define H U+0027  ;'  << HAMZA
+Define Q U+0022  ;"  << QUOTE
+Define Z U+002D  ;-  << HYPHEN
+Define BAR U+007C ;|
+Define AN  U+0061 U+004E ; aN
+
+pass(Unicode)
+
+U+E000 > ; eliminate special code for capitalization in transliterations
+
+pass(Unicode)
+
+Class [VWL]         = (U+0061  U+0065  U+0069  U+006F  U+0075 ) ;(a e i o u)
+Class [LTR]	    = (U+0061..U+007A U+0041 U+0045 U+0047 U+0049 U+004F U+0055 U+0042 U+004E U+0054 U+0059 U+005E U+002E U+005F U+0022 U+0027 U+0060) ;a..z A E I O U B N T Y ^ . _ " "" `
+Class [BRACKETS]    = (U+003C U+003E U+00AB U+00BB U+0028 U+0029 U+005B U+005D U+2018 U+2019 U+201C U+201D); < > () « » [ ] ‘ ’ “ ”
+Class [PUNCT] = (V SC P CO)
+Class [Iy]	    = (U+0049 U+0079) ;(I y)
+Class [Uw]          = (U+0055 U+0077) ;(U w)
+Class [Uwu]          = (U+0055 U+0077 U+0075) ;(U w u)
+;Class [ae]	    = (U+0061 U+0065) ;(a e)
+;Class [ou]          = (U+0075 U+006F) ;(u o)
+Class [Iyi]	    = (U+0069 U+0079 U+0049)
+Class [UI]          = (U+0049 U+0055) ; U I
+Class [Digits] = (U+0030..U+0039)
+
+Define BEG  (#|Z|[BRACKETS])
+Define END  (#|[BRACKETS]|[PUNCT] U+0020|[PUNCT] #)
+Define ENDZ (#|[BRACKETS]|[PUNCT] U+0020|[PUNCT] #|Z)
+
+
+
+
+; vowels
+u u > U
+i i > I
+a a > A
+e e > E
+o o > O
+
+;;a e > a y
+;;a o > a w
+
+
+pass(Unicode)
+
+Class [Digits] = (U+0030..U+0039)
+Class [VWL]         = (U+0061  U+0065  U+0069  U+006F  U+0075 ) ;(a e i o u)
+Class [LTR]	    = (U+0061..U+007A U+0041 U+0045 U+0049 U+004F U+0055 U+0042 U+004E U+0054 U+0059 U+005E U+002E U+005F U+0022 U+0027 U+0060) ;(a..z A E I O U B N T Y ^ . _ " "" `)
+Class [KCons] = (U+0C95..U+0CB9)
+Class [KConsNoSH] = (U+0C95..U+0CB7)
+
+;vowels
+
+au / BEG _ > U+0C95
+ai / BEG _ >  U+0C90
+
+a / BEG _  > U+0C85
+A / BEG _   > U+0C86
+i / BEG _   > U+0C87
+I / BEG _   > U+0C88
+u / BEG _   > U+0C89
+U / BEG _   > U+0C8A
+'r / BEG _   > U+0C8B
+
+e / BEG _  >  U+0C8E
+E / BEG _  >  U+0C8F
+
+o / BEG _  > U+0C92
+O / BEG _  > U+0C93
+
+
+; Automatically remove vowal from onsonant
+;; TODO: but it is very rare, so maybe not needed!
+
+
+;normal vowel modifiers:
+
+a i >  U+0CC8
+a u > U+0CCC
+
+;; a   > Deleted as the last thing to simplify no vowel
+A   > U+0CBE
+i   > U+0CBF
+I   > U+0CC0
+u   > U+0CC1
+U   > U+0CC2
+e  >  U+0CC6
+E  >  U+0CC7
+
+
+;; ??  U+0CC9
+o  > U+0CCA
+O  > U+0CCB
+
+'  > U+0CCD   ;; removes vowel from consonants
+
+;; ?? U+0CCE
+
+
+;; consonantal modifiers:
+_ r  > U+0CC3   ;; should be any consonant + _r  ;; TODO!
+_ R > U+0CC4   ;; Similar to the _r thingy!
+
+;; ?? U+0CC5
+
+
+
+;; special characters for foreign stuff:
+f   > ph U+0CBC
+
+
+;; Duplicate entries which need to be modified first!  TODO: cleanup!
+
+P t  > U+0CA4   ;; no tongur roll - tongue hits back of teeth
+P t h > U+0CA5
+P d  > U+0CA6
+P d h > U+0CA7
+
+;; normal consonants:
+
+k h  > U+0C96
+k   > U+0C95
+g h  > U+0C98
+g   > U+0C97
+_ n  > U+0C99
+
+c h  > U+0C9B
+c   > U+0C9A
+j h  > U+0C9D
+j   > U+0C9C
+_ N  > U+0C9E
+
+t h  > U+0CA0
+t   > U+0C9F
+d h  > U+0CA2
+d   > U+0CA1
+N   > U+0CA3
+
+P t  > U+0CA4   ;; no tongur roll - tongue hits back of teeth
+P t h > U+0CA5
+P d  > U+0CA6
+P d h > U+0CA7
+n   > U+0CA8
+
+;; ??   > U+0CA9
+
+p h  > U+0CAB
+p   > U+0CAA
+b   > U+0CAC
+b h  > U+0CAD
+m   > U+0CAE
+
+y   > U+0CAF
+r   > U+0CB0
+l   > U+0CB2
+L   > U+0CB3
+v   > U+0CB5
+C s  > U+0CB6
+C s h > U+0CB7
+s   > U+0CB8
+h   > U+0CB9
+
+
+;; ?? > U+0CB4
+
+[KCons]=k1 / _ ([KCons]|END) > @k1 U+0CCD
+[KCons]=k1 / _ ([KCons]|END) > @k1 U+0CCD  ;; Why do I need this twice?
+
+a   >
+
+
+pass(Unicode)
+
+
+
